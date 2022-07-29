@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ToDoPage extends StatefulWidget {
-  const ToDoPage({Key? key}) : super(key: key);
+  ToDoPage({Key? key}) : super(key: key);
+
+  final TextEditingController todoTextController = TextEditingController();
 
   @override
   State<ToDoPage> createState() => _ToDoPageState();
@@ -31,9 +33,14 @@ class _ToDoPageState extends State<ToDoPage> {
                     ),
                     const SizedBox(width: 8),
                     OutlinedButton.icon(
-                      onPressed: () {},
+                      onPressed: _onPressedAddNewTodo,
                       icon: const Icon(Icons.add_rounded),
                       label: const Text(''),
+                      style: ButtonStyle(
+                        padding: MaterialStateProperty.all(
+                          const EdgeInsets.symmetric(vertical: 18),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -87,4 +94,6 @@ class _ToDoPageState extends State<ToDoPage> {
       ),
     );
   }
+
+  _onPressedAddNewTodo() {}
 }
